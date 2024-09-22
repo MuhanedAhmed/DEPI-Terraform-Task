@@ -36,7 +36,6 @@ variable "userdata" {
 variable "keyname" {
   type        = string
   description = "A key pair to access the EC2"
-  default     = ""
 }
 
 variable "Is_PublicIP" {

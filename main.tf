@@ -51,6 +51,7 @@ module "Proxy01" {
   instance_type      = var.instance_type
   instance_subnet_id = module.main_VPC.public_subnet_id_1
   SG_id              = module.Proxy_SG.SecurityGroup_ID
+  keyname            = "myInternaAWSKey"
   userdata           = <<-EOF
 #!/bin/bash
 sudo apt-get update
@@ -83,6 +84,7 @@ module "Proxy02" {
   instance_type      = var.instance_type
   instance_subnet_id = module.main_VPC.public_subnet_id_2
   SG_id              = module.Proxy_SG.SecurityGroup_ID
+  keyname            = "myInternaAWSKey"
   userdata           = <<-EOF
 #!/bin/bash
 sudo apt-get update
@@ -182,6 +184,7 @@ module "Backend01" {
   instance_type      = var.instance_type
   instance_subnet_id = module.main_VPC.private_subnet1_id
   SG_id              = module.BE_SG.SecurityGroup_ID
+  keyname            = "myInternaAWSKey"
   Is_PublicIP        = false
   userdata           = <<-EOF
 #!/bin/bash
@@ -209,6 +212,7 @@ module "Backend02" {
   instance_type      = var.instance_type
   instance_subnet_id = module.main_VPC.private_subnet2_id
   SG_id              = module.BE_SG.SecurityGroup_ID
+  keyname            = "myInternaAWSKey"
   Is_PublicIP        = false
   userdata           = <<-EOF
 #!/bin/bash
